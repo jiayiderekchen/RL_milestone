@@ -47,6 +47,9 @@ def run_model() -> None:
 
     #_logger.info(f"saving model version: {_version}")
 
+    # Split data for training
+    train = data[(data.datadate < 20151001)]
+
     env_train = DummyVecEnv([lambda: StockEnvTrain(train)])
     # Make sure env_train implements the new gymnasium interface
 
